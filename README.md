@@ -2,6 +2,8 @@
 
 A Vendor Management System using Django and Django REST Framework. This system will handle vendor profiles, track purchase orders, and calculate vendor performance metrics. Please read the below documentation to understand how to interact with the various API endpoints.
 
+Note: If you are contributing, please go through [CONTRIBUTING.md](https://github.com/acmpesuecc/vendor-system/blob/main/CONTRIBUTING.md)
+
 ## Prerequisites 
 
 - IDE
@@ -58,10 +60,9 @@ A token will be displayed in the output. Please save this token for futher use. 
 
 ### IMPORTANT
 
-1. HE ACTUAL DELIVERY DATE OF THE PRODUCTS IS ASSUMED TO BE A WEEK FROM THE ORDER DATE since it wasn't explicitly stated in the assingment
-2. Please ensure to read the documentation carefully before using any API endpoints.
+1. The actual delivery date of the products is assumed to be a week from the order date.
+2. Detailed documentation regarding the API endpoints is present below. 
 3. For more input data structures, please refer to `docs.md`.
-4. Feedback and contributions are welcome. Feel free to submit any issues if you encounter any problems. (samyuktab22@gmail.com)
 
 ## API Endpoints: Vendor Profile Management
 
