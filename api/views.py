@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404
 from django.db import IntegrityError
 from .serializers import VendorSerializer, POSerializer, AckSerializer, QualityRateSerializer
 from .metrics import PerformanceMetrics
+from django.shortcuts import render
 
 def handle_not_found_error(resource_name):
     return Response({"message": f"No {resource_name} found with specified ID"}, status=status.HTTP_404_NOT_FOUND)
@@ -168,3 +169,15 @@ class QualityRating(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             return handle_internal_server_error(e)
+
+def dashboard(request):
+    # Fetch all purchase orders from the database
+    purchase_orders = PurchaseOrder.objects.all()
+
+    # Organize data (you can modify this if you need more info)
+    context = {
+        'purchase_orders': purchase_orders
+    }
+
+    # Render the data to an HTML template
+    return render(request, 'dashboard.html', context)
