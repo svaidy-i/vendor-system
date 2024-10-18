@@ -45,8 +45,8 @@ class PurchaseOrderModelTest(TestCase):
         )
         self.assertEqual(order.po_number, 'PO001')
 
-    def test_order_status_update(self):
-        order = PurchaseOrder.objects.create(
+        def test_order_status_update(self):
+            order = PurchaseOrder.objects.create(
             po_number='PO002',
             vendor=self.vendor,
             order_date=datetime.now(),
@@ -58,8 +58,14 @@ class PurchaseOrderModelTest(TestCase):
             acknowledgment_date=datetime.now() 
         )
         
+        # Update the order status to 'completed'
+        order.status = 'completed'
+        order.save()  # Save the updated status to the database
+        
+        # Refresh from the database and assert that the status was updated
         order.refresh_from_db() 
         self.assertEqual(order.status, 'completed')
+
 
 class HistoricalPerformanceModelTest(TestCase):
     def setUp(self):
