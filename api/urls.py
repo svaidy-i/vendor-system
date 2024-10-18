@@ -3,6 +3,7 @@ from django.urls import path
 from django.views.generic import RedirectView
 from .views import VendorViewCreateAPI, VendorDetailsAPI, POViewCreateAPI
 from .views import PODetailsAPI, PerformanceMetricsView, VendorAcknowledge, QualityRating
+from .views import dashboard  # Import the dashboard view
 
 app_name = 'api'
 
@@ -15,5 +16,10 @@ urlpatterns = [
     path('api/purchase_orders/<str:po_id>/', PODetailsAPI.as_view(), name='api-po-details'),
     path('api/vendors/<str:vendor_id>/performance/', PerformanceMetricsView.as_view()), 
     path('api/purchase_orders/<str:po_id>/acknowledge/', VendorAcknowledge.as_view()),
-    path('api/purchase_orders/<str:po_id>/quality_rate/', QualityRating.as_view())
+    path('api/purchase_orders/<str:po_id>/quality_rate/', QualityRating.as_view()),
+    path('dashboard/', dashboard, name='dashboard'),
+    path('vendors/', VendorViewCreateAPI.as_view(), name='vendor-list'),
+    path('vendors/<int:vendor_id>/', VendorDetailsAPI.as_view(), name='vendor-detail'),
+    path('purchase-orders/', POViewCreateAPI.as_view(), name='po-list'),
+    path('purchase-orders/<int:po_id>/', PODetailsAPI.as_view(), name='po-detail'),
 ]

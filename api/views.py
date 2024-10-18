@@ -168,3 +168,15 @@ class QualityRating(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             return handle_internal_server_error(e)
+
+def dashboard(request):
+    # Fetch all purchase orders from the database
+    purchase_orders = PurchaseOrder.objects.all()
+
+    # Organize data (you can modify this if you need more info)
+    context = {
+        'purchase_orders': purchase_orders
+    }
+
+    # Render the data to an HTML template
+    return render(request, 'dashboard.html', context)
