@@ -181,3 +181,4 @@ def dashboard(request):
 
     # Render the data to an HTML template
     return render(request, 'dashboard.html', context)
+    return render(request,'vendor.html')
