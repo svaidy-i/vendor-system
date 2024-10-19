@@ -1,6 +1,5 @@
-<!-- templates/dashboard.html -->
+<!-- Vendor details -->
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,37 +9,16 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Purchase Order Dashboard</h1>
+        <h1>Vendor Details Dashboard</h1>
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>PO Number</th>
                     <th>Vendor Name</th>
-                    <th>Status</th>
-                    <th>Order Date</th>
-                    <th>Delivery Date</th>
-                    <th>Quality Rating</th>
-                    <th>Issue Date</th>
-                    <th>Acknowledgment Date</th>
+                    <th>Vendor Contact</th>
+                    <th>ID/Code</th>
+                    <th>Acknowledgement</th>
+                    <th>Fulfillment Rate</th>
                 </tr>
-            </thead>
-            <tbody>
-                {% for order in purchase_orders %}
-                <tr>
-                    <td>{{ order.po_number }}</td>
-                    <td>{{ order.vendor.name }}</td>
-                    <td>{{ order.status }}</td>
-                    <td>{{ order.order_date }}</td>
-                    <td>{{ order.delivery_date }}</td>
-                    <td>{{ order.quality_rating }}</td>
-                    <td>{{ order.issue_date }}</td>
-                    <td>{{ order.acknowledgment_date }}</td>
-                </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="8">No purchase orders available.</td>
-                </tr>
-                {% endfor %}
             </tbody>
         </table>
     </div>
